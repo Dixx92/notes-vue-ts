@@ -15,15 +15,16 @@
       "pre-commit": "lint-staged"
     }
   },
-	"lint-staged": {
-		"*.{ts,tsx}": "eslint --fix",
-		"*.{css,scss,vue}": "stylelint --fix",
-		"*": "prettier -w -u"
-	},
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{css,scss,vue}": "stylelint --fix",
+    "*": "prettier -w -u"
+  },
   "dependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@types/node": "^20.8.10",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "@vitejs/plugin-vue": "^4.2.3",
