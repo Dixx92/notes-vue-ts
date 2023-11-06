@@ -1,80 +1,80 @@
 [
-	{
-		"title": "Заметка 1",
-		"created": 1699284697311,
-		"tasks": [
-			{
-				"title": "Задача 1",
-				"created": 1699284697311,
-				"isDone": false
-			},
-			{
-				"title": "Задача 2",
-				"created": 1699284697311,
-				"isDone": false
-			},
-			{
-				"title": "Задача 3",
-				"created": 1699284697311,
-				"isDone": false
-			},
-			{
-				"title": "Задача 4",
-				"created": 1699284697311,
-				"isDone": false
-			},
-			{
-				"title": "Задача 5",
-				"created": 1699284697311,
-				"isDone": true
-			}
-		]
-	},
-	{
-		"title": "Заметка 2",
-		"created": 1699284697312,
-		"tasks": [
-			{
-				"title": "Задача 1",
-				"created": 1699284697312,
-				"isDone": false
-			},
-			{
-				"title": "Задача 2",
-				"created": 1699284697313,
-				"isDone": true
-			},
-			{
-				"title": "Задача 3",
-				"created": 1699284697314,
-				"isDone": false
-			}
-		]
-	},
-	{
-		"title": "Заметка 3",
-		"created": 1699284697313,
-		"tasks": [
-			{
-				"title": "Задача 1",
-				"created": 1699284697321,
-				"isDone": true
-			},
-			{
-				"title": "Задача 2",
-				"created": 1699284697322,
-				"isDone": true
-			},
-			{
-				"title": "Задача 3",
-				"created": 1699284697323,
-				"isDone": false
-			},
-			{
-				"title": "Задача 4",
-				"created": 1699284697324,
-				"isDone": false
-			}
-		]
-	}
+  {
+    "title": "Заметка 1",
+    "created": 1699284697311,
+    "tasks": [
+      {
+        "label": "Задача 1",
+        "created": 1699284697311,
+        "isDone": false
+      },
+      {
+        "label": "Задача 2",
+        "created": 1699284697311,
+        "isDone": false
+      },
+      {
+        "label": "Задача 3",
+        "created": 1699284697311,
+        "isDone": false
+      },
+      {
+        "label": "Задача 4",
+        "created": 1699284697311,
+        "isDone": false
+      },
+      {
+        "label": "Задача 5",
+        "created": 1699284697311,
+        "isDone": true
+      }
+    ]
+  },
+  {
+    "title": "Заметка 2",
+    "created": 1699284697312,
+    "tasks": [
+      {
+        "label": "Задача 1",
+        "created": 1699284697312,
+        "isDone": false
+      },
+      {
+        "label": "Задача 2",
+        "created": 1699284697313,
+        "isDone": true
+      },
+      {
+        "label": "Задача 3",
+        "created": 1699284697314,
+        "isDone": false
+      }
+    ]
+  },
+  {
+    "title": "Заметка 3",
+    "created": 1699284697313,
+    "tasks": [
+      {
+        "label": "Задача 1",
+        "created": 1699284697321,
+        "isDone": true
+      },
+      {
+        "label": "Задача 2",
+        "created": 1699284697322,
+        "isDone": true
+      },
+      {
+        "label": "Задача 3",
+        "created": 1699284697323,
+        "isDone": false
+      },
+      {
+        "label": "Задача 4",
+        "created": 1699284697324,
+        "isDone": false
+      }
+    ]
+  }
 ]
