@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-</script>
-
 <template>
 	<div>
 		<a
@@ -27,6 +23,14 @@ import HelloWorld from './components/HelloWorld.vue';
 	</div>
 	<hello-world msg="Vite + Vue" />
 </template>
+
+<script setup lang="ts">
+import {ref} from 'vue';
+import HelloWorld from '@/components/HelloWorld.vue';
+import Notes from '@/data/notes.json';
+
+const notes = ref(Notes);
+</script>
 
 <style scoped>
 .logo {
