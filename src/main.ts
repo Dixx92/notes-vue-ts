@@ -1,10 +1,8 @@
-import { createApp } from 'vue';
-import {createStore} from 'vuex';
+import {createApp} from 'vue';
+import {store, key} from '@/store/index.ts'
 import './style.css';
 import App from './App.vue';
 
-const store = createStore({});
-
 createApp(App)
-  .use(store)
+  .use(store, key)
   .mount('#app');
