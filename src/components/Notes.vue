@@ -9,7 +9,11 @@
 			count is {{ count }}
 		</button>
 		<div class="notes__wrapper">
-			<Note v-for="note in notes" :note="note" />
+			<Note
+        v-for="note in notes"
+        :note="note"
+        :mode="APP_MODES.VIEW_NOTES"
+      />
 		</div>
 	</div>
 </template>
@@ -18,6 +22,8 @@
 import {ref} from 'vue';
 
 import Note from '@/components/Note.vue';
+
+import APP_MODES from '@/enums/AppModes';
 
 import NotesData from '@/data/notes.json';
 

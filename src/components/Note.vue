@@ -4,7 +4,7 @@
 			{{ note.title }}
 		</p>
 		<ul class="tasks__wrapper">
-			<Task v-for="task in note.tasks" :task="task" />
+			<Task v-for="task in tasks" :task="task" />
 		</ul>
 	</div>
 </template>
@@ -12,9 +12,19 @@
 <script setup lang="ts">
 import Task from '@/components/Task.vue';
 
-defineProps<{ note: object }>();
+import APP_MODES from '@/enums/AppModes';
 
-const tasks = note.tasks
+const props = defineProps<{
+  note: {
+    title: string,
+    tasks: object[],
+  },
+  mode: string,
+}>();
+
+const tasks = props.mode === APP_MODES.VIEW_NOTES
+  ? props.note.tasks.slice(0, 3)
+  : props.note.tasks;
 </script>
 
 <style lang="stylus">
