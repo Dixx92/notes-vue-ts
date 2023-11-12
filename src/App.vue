@@ -21,15 +21,11 @@
 			>
 		</a>
 	</div>
-	<hello-world msg="Vite + Vue" />
+	<notes msg="Vite + Vue" />
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue';
-import Notes from '@/data/notes.json';
-
-const notes = ref(Notes);
+import Notes from '@/components/Notes.vue';
 </script>
 
 <style scoped>
