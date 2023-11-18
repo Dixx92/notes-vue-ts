@@ -9,13 +9,13 @@ export interface State {
 
 export interface Note {
   title: string,
-  created: bigint,
+  created: number,
   tasks: Task[],
 }
 
 export interface Task {
   label: string,
-  created: bigint,
+  created: number,
   isDone: boolean
 }
 
