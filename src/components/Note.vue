@@ -17,7 +17,7 @@ import APP_MODES from '@/enums/AppModes';
 const props = defineProps<{
   note: {
     title: string,
-    tasks: object[],
+    tasks: typeof Task[],
   },
   mode: string,
 }>();

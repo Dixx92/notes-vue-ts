@@ -19,8 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
-import {useStore} from '@/store';
+import {computed, ref} from 'vue';
+import {useStore} from 'vuex';
 
 import Note from '@/components/Note.vue';
 import APP_MODES from '@/enums/AppModes';
@@ -28,7 +28,7 @@ import APP_MODES from '@/enums/AppModes';
 const store = useStore();
 
 const count = ref(0);
-const notes = store.state.notes;
+const notes = computed(() => store.getters.notes);
 </script>
 
 <style lang="stylus">

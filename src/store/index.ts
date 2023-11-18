@@ -1,32 +1,16 @@
-import {InjectionKey} from 'vue';
-import {createStore, useStore as baseUseStore, Store} from 'vuex';
+import {createStore, Store} from 'vuex';
+import getters from '@/store/getters';
+
+import State from '@/types/State';
+import Note from '@/types/Note';
 
 import Notes from '@/store/data/notes.json';
 
-export interface State {
-  notes: Note[]
-}
-
-export interface Note {
-  title: string,
-  created: number,
-  tasks: Task[],
-}
-
-export interface Task {
-  label: string,
-  created: number,
-  isDone: boolean
-}
-
-export const key: InjectionKey<Store<State>> = Symbol()
-
-export const store = createStore<State>({
+const store: Store<State> = createStore<State>({
   state: {
-    notes: Notes
-  }
+    notes: Notes as Note[]
+  },
+  getters,
 })
 
-export function useStore() {
-  return baseUseStore(key)
-}
+export default store;
