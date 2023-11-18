@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>Vite + Vue</h1>
 
   <div class="card">
     <button
@@ -24,8 +24,6 @@ import {useStore} from '@/store';
 
 import Note from '@/components/Note.vue';
 import APP_MODES from '@/enums/AppModes';
-
-defineProps<{ msg: string }>();
 
 const store = useStore();
 

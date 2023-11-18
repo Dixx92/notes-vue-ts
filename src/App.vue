@@ -21,12 +21,10 @@
       >
     </a>
   </div>
-  <notes msg="Vite + Vue"/>
+  <router-view />
 </template>
 
-<script setup lang="ts">
-import Notes from '@/components/Notes.vue';
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .logo {
