@@ -1,22 +1,28 @@
 import {createRouter, createWebHistory, Router, RouteRecordRaw} from 'vue-router';
-import Notes from '@/components/Notes.vue';
-import Note from '@/components/Note.vue';
+import HomeView from '@/views/HomeView.vue';
+import NoteView from '@/views/NoteView.vue';
+import NoteFormView from '@/views/NoteFormView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'AllNotes',
-    component: Notes
+    component: HomeView
   },
   {
     path: '/note',
     name: 'CreateNote',
-    component: Note,
+    component: NoteFormView,
   },
   {
     path: '/note/:id',
     name: 'ViewNote',
-    component: Note,
+    component: NoteView,
+  },
+  {
+    path: '/note/:id/edit',
+    name: 'EditNote',
+    component: NoteFormView,
   },
   {
     path: '/:pathMatch(.*)*',

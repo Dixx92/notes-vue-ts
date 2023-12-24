@@ -1,5 +1,6 @@
 export default interface Task {
-  label: string,
-  created: number,
+  id: string,
+  text: string,
+  created?: number,
   isDone: boolean
 }

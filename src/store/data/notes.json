@@ -1,77 +1,92 @@
 [
   {
+    "id": "1",
     "title": "Заметка 1",
     "created": 1699284697311,
     "tasks": [
       {
-        "label": "Задача 1",
+        "id": "1",
+        "text": "Задача 1",
         "created": 1699284697311,
         "isDone": false
       },
       {
-        "label": "Задача 2",
+        "id": "2",
+        "text": "Задача 2",
         "created": 1699284697311,
         "isDone": false
       },
       {
-        "label": "Задача 3",
+        "id": "3",
+        "text": "Задача 3",
         "created": 1699284697311,
         "isDone": false
       },
       {
-        "label": "Задача 4",
+        "id": "4",
+        "text": "Задача 4",
         "created": 1699284697311,
         "isDone": false
       },
       {
-        "label": "Задача 5",
+        "id": "5",
+        "text": "Задача 5",
         "created": 1699284697311,
         "isDone": true
       }
     ]
   },
   {
+    "id": "2",
     "title": "Заметка 2",
     "created": 1699284697312,
     "tasks": [
       {
-        "label": "Задача 1",
+        "id": "1",
+        "text": "Задача 1",
         "created": 1699284697312,
         "isDone": false
       },
       {
-        "label": "Задача 2",
+        "id": "2",
+        "text": "Задача 2",
         "created": 1699284697313,
         "isDone": true
       },
       {
-        "label": "Задача 3",
+        "id": "3",
+        "text": "Задача 3",
         "created": 1699284697314,
         "isDone": false
       }
     ]
   },
   {
+    "id": "3",
     "title": "Заметка 3",
     "created": 1699284697313,
     "tasks": [
       {
-        "label": "Задача 1",
+        "id": "1",
+        "text": "Задача 1",
         "created": 1699284697321,
         "isDone": true
       },
       {
-        "label": "Задача 2",
+        "id": "2",
+        "text": "Задача 2",
         "created": 1699284697322,
         "isDone": true
       },
       {
-        "label": "Задача 3",
+        "id": "2",
+        "text": "Задача 3",
         "created": 1699284697323,
         "isDone": false
       },
       {
-        "label": "Задача 4",
+        "id": "4",
+        "text": "Задача 4",
         "created": 1699284697324,
         "isDone": false
       }
