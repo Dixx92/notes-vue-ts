@@ -4,6 +4,7 @@
   <div class="home-view">
     <div class="notes__wrapper">
       <Note
+        class="notes__note-item"
         v-for="note in sortedNotes"
         :note="note"
         :is-short-task-list="true"
@@ -25,7 +26,15 @@ const { sortedNotes } = useNotes();
 </script>
 
 <style lang="stylus">
-.notes__wrapper
-  display grid
-  gap 8px
+.notes
+  &__wrapper
+    display grid
+    gap 8px
+
+  &__note-item
+    border-radius 8px
+    cursor pointer
+
+    &:hover
+      background-color #E0F2F1
 </style>

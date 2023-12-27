@@ -8,13 +8,14 @@
     <div class="note-form__title">
       <label>
         Название заметки:
-        <input v-model="title"/>
+        <input class="note-form__field" v-model="title"/>
       </label>
     </div>
     <div class="note-form__tasks">
       <label v-for="(task, index) in tasks">
         Задача {{ index + 1 }}
         <input
+          class="note-form__field"
           :value="task.text"
           @input="(event) => changeTask(task, event)"
         />
@@ -95,9 +96,23 @@ const updateNoteHandle = () => {
   &__title
     padding 16px
 
+    input
+      width 265px
+
   &__tasks
     display grid
     gap 8px
+
+    input
+      width 340px
+
+  &__field
+    padding 8px
+    margin-left 8px
+    border 1px solid #d9d9d9
+    border-radius 8px
+    line-height 24px
+    font-size 16px
 
   &__actions
     display flex

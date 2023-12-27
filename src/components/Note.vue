@@ -46,18 +46,11 @@ const { deleteNote } = useNotes();
 
 <style lang="stylus">
 .note
-  gap 8px
-  border-radius 8px
-  cursor pointer
-
-  &:hover
-    background-color #E0F2F1
-
   &__header
     display flex
     justify-content space-between
     align-items center
-    padding 0 8px
+    padding 8px 8px 0
     gap 8px
 
   &__title
@@ -70,8 +63,8 @@ const { deleteNote } = useNotes();
 
   &__btn
     padding 4px 8px
-    font-size 12px
-    line-height 16px
+    font-size 14px
+    line-height 20px
 
   &__tasks
     border 1px solid #D9D9D9
