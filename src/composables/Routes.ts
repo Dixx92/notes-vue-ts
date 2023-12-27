@@ -1,16 +1,16 @@
 import router from '@/router';
 
 export function useRoutes() {
-  const allNotes = () =>
+  const toAllNotes = () =>
     router.push({ name: 'AllNotes' });
 
-  const viewNote = (id: string) =>
+  const toViewNote = (id: string) =>
     router.push({ name: 'ViewNote', params: { id } });
 
-  const createNote = () =>
+  const toCreateNote = () =>
     router.push({ name: 'CreateNote' });
 
-  const editNote = (id: string) =>
+  const toEditNote = (id: string) =>
     router.push({ name: 'EditNote', params: { id } })
 
   const prevRouter = () => {
@@ -18,10 +18,10 @@ export function useRoutes() {
   }
 
   return {
-    allNotes,
-    viewNote,
-    createNote,
-    editNote,
+    toAllNotes,
+    toViewNote,
+    toCreateNote,
+    toEditNote,
     prevRouter,
   }
 }

@@ -1,4 +1,9 @@
 <template>
+  <Header
+    :title="note ? 'Форма редактирования' : 'Форма добавления'"
+    hidden-button
+  />
+
   <div class="note-form">
     <div class="note-form__title">
       <label>
@@ -16,51 +21,29 @@
       </label>
     </div>
     <div class="note-form__actions">
-      <button
-        v-if="noteId"
-        class="note-form__button"
-        :class="{ 'note-form__button--inactive': !validateForm }"
-        @click="updateNote(noteId, title, filledTasks)"
-      >
-        Изменить
-      </button>
-      <button
-        v-else
-        class="note-form__button"
-        :class="{ 'note-form__button--inactive': !validateForm }"
-        @click="saveNote(title, filledTasks)"
-      >
-        Создать
-      </button>
-      <button class="note-form__button" @click="prevRouter">
-        Отмена
-      </button>
+      <Button v-if="noteId" @click="updateNoteHandle">Изменить</Button>
+      <Button v-else @click="addNoteHandle">Создать</Button>
+      <Button @click="prevRouter">Отмена</Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {computed, ref} from 'vue';
+import { computed, ref } from 'vue';
+
+import Header from '@/components/Header.vue';
+import Button from '@/components/ui/Button.vue';
 
 import { useRoutes, useRouteParam } from '@/composables/Routes.ts';
 import { useNotes } from '@/composables/Notes.ts';
 
 import Task from "@/types/Task.ts";
 
-import generateUID from '@/utils/generateUID.ts';
-
 const MIN_DISPLAY_TASKS_LENGTH = 3;
 
 const { prevRouter } = useRoutes();
 
-const createTask = (text = ''): Task => ({
-  id: generateUID(),
-  text,
-  ...(text && { created: Date.now() }),
-  isDone: false,
-});
-
-const { getNote, saveNote, updateNote } = useNotes();
+const { getNote, addNote, updateNote, createTask } = useNotes();
 
 const noteId = useRouteParam('id').value;
 const note = getNote(noteId);
@@ -68,14 +51,12 @@ const note = getNote(noteId);
 const title = ref(note?.title ?? '');
 const tasks = ref(note?.tasks ?? []);
 
-if (tasks.value.length < 3) {
-  const numberTasksToAdd = Math.max(MIN_DISPLAY_TASKS_LENGTH - tasks.value.length, 0);
-
-  tasks.value = [...tasks.value, ...Array.from(Array(numberTasksToAdd), createTask)];
-}
+// Заполняем массив с задачами до необходимого минимального размера MIN_DISPLAY_TASKS_LENGTH,
+// если массив нужного размера добавляем новую пустую задачу
+const numberTasksToAdd = Math.max(MIN_DISPLAY_TASKS_LENGTH - tasks.value.length, 1);
+tasks.value = [...tasks.value, ...Array.from(Array(numberTasksToAdd), createTask)];
 
 const filledTasks = computed(() => tasks.value.filter((task) => task.text));
-const validateForm = computed(() => Boolean(title.value && filledTasks.value.length));
 
 const changeTask = (task: Task, event: Event) => {
   task.text = (<HTMLInputElement>event.target).value;
@@ -84,6 +65,25 @@ const changeTask = (task: Task, event: Event) => {
     tasks.value.push(createTask());
   }
 };
+
+const processValidateForm = () => {
+  if (!title.value) {
+    alert('Не заполнено обязательное поле "Название заметки"!');
+    return false;
+  }
+
+  return true;
+};
+
+const addNoteHandle = () => {
+  if (processValidateForm())
+    addNote(title.value, filledTasks.value)
+};
+
+const updateNoteHandle = () => {
+  if (processValidateForm())
+    updateNote(noteId, title.value, filledTasks.value)
+}
 </script>
 
 <style lang="stylus">
@@ -110,8 +110,4 @@ const changeTask = (task: Task, event: Event) => {
     border 2px solid green
     border-radius 8px
     text-transform uppercase
-
-    &--inactive
-      background-color #808080
-      border 2px solid #808080
 </style>

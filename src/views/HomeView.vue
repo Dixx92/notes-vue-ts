@@ -1,14 +1,13 @@
 <template>
-  <div class="card">
-    <button type="button" @click="createNote">
-      Добавить заметку
-    </button>
+  <Header title="Список заметок" />
+
+  <div class="home-view">
     <div class="notes__wrapper">
       <Note
         v-for="note in sortedNotes"
         :note="note"
         :is-short-task-list="true"
-        @click="viewNote(note.id)"
+        @click="toViewNote(note.id)"
       />
     </div>
   </div>
@@ -18,9 +17,10 @@
 import { useRoutes } from '@/composables/Routes.ts';
 import { useNotes } from '@/composables/Notes.ts';
 
+import Header from '@/components/Header.vue';
 import Note from '@/components/Note.vue';
 
-const { createNote, viewNote } = useRoutes();
+const { toViewNote } = useRoutes();
 const { sortedNotes } = useNotes();
 </script>
 

@@ -1,12 +1,15 @@
 import { computed } from 'vue';
+
 import { useStore } from 'vuex';
+import { useRoutes } from '@/composables/Routes.ts';
 
 import Note from '@/types/Note.ts';
 import Task from '@/types/Task.ts';
-import {useRoutes} from '@/composables/Routes.ts';
+
+import generateUID from '@/utils/generateUID.ts';
 
 export function useNotes() {
-  const { prevRouter } = useRoutes();
+  const { toAllNotes, prevRouter } = useRoutes();
 
   const store = useStore();
 
@@ -21,7 +24,7 @@ export function useNotes() {
 
   const getNote = (id: string): Note | undefined => notes.value.find((note: Note) => note.id === id);
 
-  const saveNote = async (title: string, tasks: Task[]) => {
+  const addNote = async (title: string, tasks: Task[]) => {
     await store.dispatch('addNote', { title, tasks });
 
     prevRouter();
@@ -40,7 +43,7 @@ export function useNotes() {
     if (note && confirmNote()) {
       await store.dispatch('deleteNote', { noteId });
 
-      prevRouter();
+      await toAllNotes();
     }
   }
 
@@ -48,13 +51,21 @@ export function useNotes() {
     await store.dispatch('toggleTaskDone', { noteId, taskId });
   }
 
+  const createTask = (text = ''): Task => ({
+    id: generateUID(),
+    text,
+    ...(text && { created: Date.now() }),
+    isDone: false,
+  });
+
   return {
     notes,
     sortedNotes,
     getNote,
-    saveNote,
+    addNote,
     updateNote,
     deleteNote,
     toggleTaskDone,
+    createTask,
   }
 }
